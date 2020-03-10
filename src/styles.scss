@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.navbar,
+.dark-footer {
+  background-color: #222222;
+  color: white;
+}
+
+.btn-outline-success {
+  color: #1c5d99;
+  border-color: #1c5d99;
+
+  &:hover {
+    color: #1c5d99;
+  }
+}
+
+body {
+  padding-bottom: 3rem;
+}
+
+main {
+  background-color: rgb(241, 241, 241);
+}
+
+footer {
+  padding-top: 3rem;
+  padding-top: 3rem;
+}
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+.card-text {
+  font-size: 0.8rem;
+}
+
+.text-muted {
+  font-size: 0.7rem;
+}
