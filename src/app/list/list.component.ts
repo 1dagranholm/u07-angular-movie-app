@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._http.getMovies().subscribe(data => {
+    this._http.getPopularMovies().subscribe(data => {
       this.movies = data['results'];
     });
   }

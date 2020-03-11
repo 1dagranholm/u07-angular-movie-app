@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-
 @Component({
   selector: 'app-view-movie',
   templateUrl: './view-movie.component.html',

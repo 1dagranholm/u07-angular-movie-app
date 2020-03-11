@@ -1,22 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* Bootstrap */
 @import "~bootstrap/dist/css/bootstrap.css";
 
+/* General */
 .navbar,
 .dark-footer {
   background-color: #222222;
   color: white;
 }
 
-.btn-outline-success {
-  color: #1c5d99;
-  border-color: #1c5d99;
-
-  &:hover {
-    color: #1c5d99;
-  }
-}
-
+/* General styling */
 body {
   padding-bottom: 3rem;
 }
@@ -30,13 +22,7 @@ footer {
   padding-top: 3rem;
 }
 
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-
 /* Text styling */
-
 h1 {
   font-size: 2rem;
   font-weight: 500;
@@ -62,6 +48,41 @@ h5 {
   font-weight: 400;
 }
 
+/* Backgrounds */
+.bg-real-dark {
+  background-color: #222222;
+}
+
+.bg-blue {
+  background-color: #1c5d99;
+}
+
+.bg-green-blue {
+  background-color: #639fab;
+}
+
+/* Buttons */
+.blue-btn {
+  color: #1c5d99;
+  border-color: #1c5d99;
+
+  &:hover {
+    background-color: #1c5d99;
+    border-color: #1c5d99;
+  }
+}
+
+.green-blue-btn {
+  color: #639fab;
+  border-color: #639fab;
+
+  &:hover {
+    background-color: #639fab;
+    border-color: #639fab;
+  }
+}
+
+/* Custom bootstrap styling */
 .card-text {
   font-size: 0.8rem;
 }
@@ -72,4 +93,9 @@ h5 {
 
 .jumbotron {
   border-radius: 0rem;
+}
+
+/* Divider */
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }

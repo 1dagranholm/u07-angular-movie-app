@@ -14,7 +14,6 @@
 
 <div class="container marketing mt-5">
   <div class="row featurette">
-
     <div class="col-12 col-md-4 mb-4">
       <img
         class="profile-image"
@@ -30,18 +29,18 @@
       <ul class="pl-0">
         <h3>Facts</h3>
         <li>
-          <span class="font-weight-bold">Birth:</span> {{ actor.birthday }} in {{ actor.place_of_birth }}
+          <span class="font-weight-bold">Birth:</span> {{ actor.birthday }} in
+          {{ actor.place_of_birth }}
         </li>
         <li>
-          <span ng-hide="actor.deathday = null" class="font-weight-bold">Deathday:</span> {{ actor.deathday }}
-        </li>
-        <li>
-          <span class="font-weight-bold">Popularity:</span>
-          {{ actor.popularity }}
+          <span *ngIf="actor.deathday" class="font-weight-bold">Deathday:</span>
+          {{ actor.deathday }}
         </li>
       </ul>
-      <h3 class="mt-4">Also known as</h3>
-      <p>{{ actor.also_known_as }}</p>
+
+      <h3 *ngIf="actor.also_known_as">Also known as</h3>
+        <p *ngFor="let names of actor.also_known_as" class="pl-0 m-1">{{ names }}</p>
+
     </div>
 
   </div>

@@ -1,4 +1,4 @@
-<section class="jumbotron text-center text-light">
+<section class="jumbotron text-center text-light bg-green-blue">
   <div class="container">
     <h1>Popular movies</h1>
     <p class="lead">Movies with the highest votes at this moment.</p>
@@ -8,7 +8,7 @@
 <div class="album py-5 bg-light">
   <div *ngIf="movies" class="container">
     <div class="row">
-      <div *ngFor="let movie of movies" class="col-md-3">
+      <div *ngFor="let movie of movies" class="order-{{ movie.vote_average }} col-12 col-md-6 col-lg-4 col-xl-3">
         <div class="card mb-4 shadow-sm">
           <img
             src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{
@@ -19,13 +19,12 @@
             focusable="false"
             role="img"
           />
-          <title>{{ movie.title }}</title>
           <div class="card-body">
-            <h3>{{ movie.title }}</h3>
+            <h3 class="mb-0">{{ movie.title }}</h3>
+            <p><small class="text-muted">Release: {{ movie.release_date }}</small></p>
             <p class="card-text" style="height:120px;">
               {{ movie.overview.substring(0, 200) }}...
             </p>
-            <p class="card-text">Release-date: {{ movie.release_date }}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button
@@ -36,14 +35,7 @@
                   More info
                 </button>
               </div>
-              <p>
-                <small class="text-muted"
-                  >Rating: {{ movie.vote_average }}</small
-                >
-              </p>
-              <p>
-                <small class="text-muted">Votes: {{ movie.popularity }}</small>
-              </p>
+              <small class="text-muted">Average vote: {{ movie.vote_average }}</small>
             </div>
           </div>
         </div>
