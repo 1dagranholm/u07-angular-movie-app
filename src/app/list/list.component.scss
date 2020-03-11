@@ -1,32 +1,24 @@
 .jumbotron {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    margin-bottom: 0;
-    background-color: #639FAB;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #639fab;
 }
 @media (min-width: 768px) {
-    .jumbotron {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
-    }
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 }
 
 .jumbotron p:last-child {
-    margin-bottom: 0;
-}
-
-.jumbotron h1 {
-    font-weight: 300;
+  margin-bottom: 0;
 }
 
 .jumbotron .container {
-    max-width: 40rem;
+  max-width: 40rem;
 }
 
 .poster_path {
-      height: 100%;
-}
-
-h2 {
-    font-size: 1.1rem;
+  height: 100%;
 }

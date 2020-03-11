@@ -34,8 +34,32 @@ footer {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
 
+
+/* Text styling */
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
 h3 {
   font-size: 1.1rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .card-text {
@@ -44,4 +68,8 @@ h3 {
 
 .text-muted {
   font-size: 0.7rem;
+}
+
+.jumbotron {
+  border-radius: 0rem;
 }

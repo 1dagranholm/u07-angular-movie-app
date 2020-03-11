@@ -1,33 +1,53 @@
-    <section class="jumbotron text-center text-light">
-      <div class="container">
-        <h1>Popular movies</h1>
-        <p class="lead">Movies with the highest votes at this moment.</p>
-      </div>
-    </section>
-  
-    <div class="album py-5 bg-light">
-      <div *ngIf="movies" class="container">
-  
-        <div class="row">
-          <div *ngFor="let movie of movies" class="col-md-3"> 
-            <div class="card mb-4 shadow-sm">
-              <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{ movie.poster_path }}" class="poster_path bd-placeholder-img card-img-top" width="100%" focusable="false" role="img"> 
-              <title>{{ movie.title }}</title>
-              <div class="card-body">
-                <h3>{{ movie.title }}</h3>
-                <p class="card-text" style="height:120px;">{{ movie.overview.substring(0, 200) }}...</p>
-                <p class="card-text">Release-date: {{ movie.release_date }}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" routerLink="/" class="btn btn-sm btn-outline-secondary">More info</button>
-                  </div>
-                  <p><small class="text-muted">Rating: {{ movie.vote_average }}</small></p>
-                  <p><small class="text-muted">Votes: {{ movie.popularity }}</small></p>
-                </div>
+<section class="jumbotron text-center text-light">
+  <div class="container">
+    <h1>Popular movies</h1>
+    <p class="lead">Movies with the highest votes at this moment.</p>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div *ngIf="movies" class="container">
+    <div class="row">
+      <div *ngFor="let movie of movies" class="col-md-3">
+        <div class="card mb-4 shadow-sm">
+          <img
+            src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{
+              movie.poster_path
+            }}"
+            class="poster_path bd-placeholder-img card-img-top"
+            width="100%"
+            focusable="false"
+            role="img"
+          />
+          <title>{{ movie.title }}</title>
+          <div class="card-body">
+            <h3>{{ movie.title }}</h3>
+            <p class="card-text" style="height:120px;">
+              {{ movie.overview.substring(0, 200) }}...
+            </p>
+            <p class="card-text">Release-date: {{ movie.release_date }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button
+                  type="button"
+                  routerLink="/"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  More info
+                </button>
               </div>
+              <p>
+                <small class="text-muted"
+                  >Rating: {{ movie.vote_average }}</small
+                >
+              </p>
+              <p>
+                <small class="text-muted">Votes: {{ movie.popularity }}</small>
+              </p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
+  </div>
+</div>

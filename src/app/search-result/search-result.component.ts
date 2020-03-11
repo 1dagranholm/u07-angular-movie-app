@@ -8,17 +8,16 @@ import { HttpService } from '../http.service';
 })
 export class SearchResultComponent implements OnInit {
 
-  searches: Object;
+  searches: any;
 
   constructor(
     private _http: HttpService
   ) {}
 
   ngOnInit() {
-    this._http.getSearch().subscribe(data => {
-      this.searches = data['results'];
-      console.log(this.searches);
-    });
+    // this._http.getSearch().subscribe(data => {
+    //   this.searches = data['results'];
+    //   console.log(this.searches);
+    // });
   }
-
 }

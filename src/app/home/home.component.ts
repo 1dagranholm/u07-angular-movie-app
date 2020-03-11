@@ -8,7 +8,7 @@ import { HttpService } from '../http.service';
 })
 export class HomeComponent implements OnInit {
 
-  movies: Object;
+  movies: any;
 
   constructor(
     private _http: HttpService

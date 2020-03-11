@@ -18,18 +18,38 @@ export class HttpService {
     let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
 
     return this.http.get(
-      apiUrl + '?' + param + '&api_key=' + apiKey
+      apiUrl + '?' + param + '&api_key=' + apiKey + '&language=en-US'
     );
   }
 
-  getSearch() {
-    let apiUrl = 'https://api.themoviedb.org/3/search/multi';
+  getMovie() {
+    let apiUrl = 'https://api.themoviedb.org/3/movie/';
+    let id = '550';
     let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
-   
-    let query = this.router.queryParams.subscribe(params => {return params});
-  
+
     return this.http.get(
-      apiUrl + '?api_key='+ apiKey + '&language=en-US&query=' + query + '&page=1&include_adult=false'
+      apiUrl + id + '?api_key=' + apiKey + '&language=en-US'
     );
   }
+
+  getActor() {
+    let apiUrl = 'https://api.themoviedb.org/3/person/';
+    let id = '1204';
+    let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
+
+    return this.http.get(
+      apiUrl + id + '?api_key=' + apiKey + '&language=en-US'
+    );
+  }
+
+  // getSearch() {
+  //   let apiUrl = 'https://api.themoviedb.org/3/search/multi';
+  //   let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
+   
+  //   let query = this.router.queryParams.subscribe(params => {return params});
+  
+  //   return this.http.get(
+  //     apiUrl + '?api_key='+ apiKey + '&language=en-US&query=' + query + '&page=1&include_adult=false'
+  //   );
+  // }
 }

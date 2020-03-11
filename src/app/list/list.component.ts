@@ -8,7 +8,7 @@ import { HttpService } from '../http.service';
 })
 export class ListComponent implements OnInit {
 
-  movies: Object;
+  movies: any;
 
   constructor(
     private _http: HttpService
