@@ -1,19 +1,7 @@
+li {
+  list-style-type: none;
+}
+
 .jumbotron {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  margin-bottom: 0;
-}
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-}
-
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
-
-.jumbotron .container {
-  max-width: 40rem;
+  background-color: #1c5d99;
 }

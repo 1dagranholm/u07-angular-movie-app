@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-view-movie',
@@ -9,16 +10,25 @@ import { HttpService } from '../http.service';
 export class ViewMovieComponent implements OnInit {
 
   movie: any;
+  movieId: number;
+  cast: any;
 
   constructor(
     private _http: HttpService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this._http.getMovie().subscribe(data => {
+    this.route.paramMap.subscribe(params => {
+      this.movieId = parseInt(params.get('id'));
+    });
+ 
+    this._http.getMovie(this.movieId).subscribe(data => {
       this.movie = data;
-      console.log(this.movie);
+    });
+
+    this._http.getActorsInMovie(this.movieId).subscribe(data => {
+      this.cast = data['cast'];
     });
   }
-
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-view-actor',
@@ -9,16 +10,29 @@ import { HttpService } from '../http.service';
 export class ViewActorComponent implements OnInit {
 
   actor: any;
+  actorId: number;
+  gender: any;
+  movies: any;
 
   constructor(
     private _http: HttpService,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
-    this._http.getActor().subscribe(data => {
+    this.route.paramMap.subscribe(params => {
+      this.actorId = parseInt(params.get('id'));
+    });
+ 
+    this._http.getActor(this.actorId).subscribe(data => {
       this.actor = data;
-      console.log(this.actor);
+    });
+
+    this.gender = ['Undefined', 'Woman', 'Man']
+
+    this._http.getActorMovies(this.actorId).subscribe(data => {
+      this.movies = data['cast'];
+      console.log(data['cast']);
     });
   }
-
 }

@@ -2,24 +2,9 @@
   max-width: 960px;
 }
 
-/*
-   * Extra utilities
-   */
-
-.flex-equal > * {
-  -ms-flex: 1;
-  flex: 1;
-}
-@media (min-width: 768px) {
-  .flex-md-equal > * {
-    -ms-flex: 1;
-    flex: 1;
-  }
-}
-
 .head-image {
   overflow: hidden;
-  max-height: 500px;
+  max-height: 600px;
   position: relative;
 }
 
@@ -29,15 +14,56 @@
 
 .cover-text {
   position: absolute;
-  top: 150px;
+  top: 200px;
   left: 0;
   right: 0;
   z-index: 1000;
   color: white;
 }
 
+.flex-equal > * {
+  -ms-flex: 1;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .cover-text {
+    top: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cover-text {
+    top: 40px;
+    h1, h2 {
+      font-size: 1.4rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    a, button {
+      font-size: 1rem;
+    }
+  }
+  .search-box {
+    h1, h2 {
+      font-size: 1.4rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    a, button {
+      font-size: 1rem;
+    }
+  }
+}
+
 .overlay {
-  background-color: rgb(0,0,0,0.85);
+  background-color: rgb(0, 0, 0, 0.85);
   position: absolute;
   top: 0;
   bottom: 0;

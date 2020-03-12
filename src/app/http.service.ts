@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HttpService {
 
   constructor(
-    private http: HttpClient,
-    private router: ActivatedRoute
+    private http: HttpClient
   ) {}
 
   getPopularMovies() {
@@ -23,9 +21,8 @@ export class HttpService {
     );
   }
 
-  getMovie() {
+  getMovie(id: number) {
     let apiUrl = 'https://api.themoviedb.org/3/movie/';
-    let id = '8413';
     let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
 
     return this.http.get(
@@ -33,9 +30,17 @@ export class HttpService {
     );
   }
 
-  getActor() {
+  getActorsInMovie(id: number) {
+    let apiUrl = 'https://api.themoviedb.org/3/movie/';
+    let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
+
+    return this.http.get(
+      apiUrl + id + '/credits?api_key=' + apiKey
+    );
+  }
+
+  getActor(id: number) {
     let apiUrl = 'https://api.themoviedb.org/3/person/';
-    let id = '1810';
     let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
 
     return this.http.get(
@@ -43,14 +48,39 @@ export class HttpService {
     );
   }
   
-  // getSearch() {
-  //   let apiUrl = 'https://api.themoviedb.org/3/search/multi';
-  //   let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
-   
-  //   let query = this.router.queryParams.subscribe(params => {return params});
-  
-  //   return this.http.get(
-  //     apiUrl + '?api_key='+ apiKey + '&language=en-US&query=' + query + '&page=1&include_adult=false'
-  //   );
-  // }
+  getActorMovies(id: number) {
+    let apiUrl = 'https://api.themoviedb.org/3/person/';
+    let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
+
+    return this.http.get(
+      apiUrl + id + '/combined_credits?api_key=' + apiKey + '&language=en-US'
+    );
+  }
+
+  getSearch(search: any) {
+    let apiUrl = 'https://api.themoviedb.org/3/search/multi';
+    let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
+ 
+    return this.http.get(
+      apiUrl + '?api_key='+ apiKey + '&language=en-US&query=' + search + '&page=1&include_adult=false'
+    );
+  }
+
+  searchActors(search: any) {
+    let apiUrl = 'https://api.themoviedb.org/3/search/person';
+    let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
+ 
+    return this.http.get(
+      apiUrl + '?api_key='+ apiKey + '&language=en-US&page=1&include_adult=false&query=' + search
+    );
+  }
+
+  searchMovies(search: any) {
+    let apiUrl = 'https://api.themoviedb.org/3/search/movie';
+    let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
+ 
+    return this.http.get(
+      apiUrl + '?api_key='+ apiKey + '&language=en-US&query=' + search + '&page=1&include_adult=false'
+    );
+  }
 }

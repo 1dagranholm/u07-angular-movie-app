@@ -1,76 +1,83 @@
-<section class="jumbotron text-center text-light">
+<section class="jumbotron text-center">
   <div class="container">
-    <h1>
+    <h1 *ngIf="actor.name">
       {{ actor.name }}
-      <span class="text-muted"> ({{ actor.birthday }})</span>
+      <span *ngIf="actor.birthday" class="text-muted">
+        ({{ actor.birthday }})</span
+      >
     </h1>
-    <p class="lead">Best known for: {{ actor.known_for_department }}</p>
+    <p *ngIf="actor.known_for_department" class="lead">
+      Best known for: {{ actor.known_for_department }}
+    </p>
   </div>
 </section>
-
-<!-- Marketing messaging and featurettes
-    ================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
 
 <div class="container marketing mt-5">
   <div class="row featurette">
     <div class="col-12 col-md-4 mb-4">
       <img
+        *ngIf="actor.profile_path"
         class="profile-image"
-        src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{
+        src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{
           actor.profile_path
         }}"
       />
     </div>
 
     <div class="col-12 col-md-8">
-      <h2>Biography</h2>
-      <p>{{ actor.biography }}</p>
-      <ul class="pl-0">
+      <h2 *ngIf="actor.biography" >Biography</h2>
+      <p class="n2br">{{ actor.biography }}</p>
+
+      <ul
+        *ngIf="actor.place_of_birth == null || actor.deathday == null || actor.gender == null"
+        class="pl-0 mt-4"
+      >
         <h3>Facts</h3>
-        <li>
-          <span class="font-weight-bold">Birth:</span> {{ actor.birthday }} in
-          {{ actor.place_of_birth }}
+        <li *ngIf="actor.birthday">
+          <span class="font-weight-bold">Birthday:</span> {{ actor.birthday }} 
         </li>
         <li>
-          <span *ngIf="actor.deathday" class="font-weight-bold">Deathday:</span>
+          <span class="font-weight-bold">Place of birth:</span> {{ actor.place_of_birth }}
+        </li>
+        <li *ngIf="actor.deathday">
+          <span class="font-weight-bold">Deathday:</span>
           {{ actor.deathday }}
+        </li>
+        <li *ngIf="actor.gender">
+          <span class="font-weight-bold">Gender:</span>
+          {{ gender[actor.gender] }}
         </li>
       </ul>
 
-      <h3 *ngIf="actor.also_known_as">Also known as</h3>
-        <p *ngFor="let names of actor.also_known_as" class="pl-0 m-1">{{ names }}</p>
+      <a class="btn blue-btn mb-5" *ngIf="actor.imdb_id" target="_blank" href="https://www.imdb.com/name/{{ actor.imdb_id }}/">Link to IMDB</a>
 
     </div>
-
   </div>
 
   <hr class="featurette-divider" />
 
-  <!-- Three columns of text below the carousel -->
-  <h2 class="text-center">Featured in</h2>
+  <h2 *ngIf="movies">Featured in</h2>
   <div class="row mt-4">
-    <div class="col-4 text-center mb-5">
-      <svg
-        class="bd-placeholder-img rounded-circle"
-        width="140"
-        height="140"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
-        focusable="false"
-        role="img"
-        aria-label="Placeholder: 140x140"
-      >
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#777" />
-        <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-      </svg>
-      <h3>{{ actor.film }}</h3>
-      <p></p>
-      <p>
-        <a class="btn btn-secondary" href="#" role="button">View &raquo;</a>
-      </p>
+    <div class="wrapper" *ngFor="let m of movies; let i = index">
+      <div *ngIf="m.poster_path" class="col-2 text-center mb-5">
+        <div *ngIf="i < 12">
+          <a [routerLink]="['/view-movie', m.id]">
+            <img
+              src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{
+                m.poster_path
+              }}"
+              class="poster_path bd-placeholder-img card-img-top cast-image"
+              width="100%"
+              focusable="false"
+              role="img"
+            />
+          </a>
+          <a [routerLink]="['/view-actor', m.id]"
+            ><h3 class="mt-3">{{ m.original_title}}</h3></a
+          >
+          <p class="card-text">Character: {{ m.character }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<!-- /.container -->

@@ -61,6 +61,10 @@ h5 {
   background-color: #639fab;
 }
 
+.bg-darken {
+  background-color: darken($color: #2e2c2c, $amount: 5);
+}
+
 /* Buttons */
 .blue-btn {
   color: #1c5d99;
@@ -82,6 +86,17 @@ h5 {
   }
 }
 
+.white-btn {
+  color: #ffffff;
+  border-color: #ffffff;
+
+  &:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #222222;
+  }
+}
+
 /* Custom bootstrap styling */
 .card-text {
   font-size: 0.8rem;
@@ -92,10 +107,38 @@ h5 {
 }
 
 .jumbotron {
+  background-color: #2e2c2c;
+  color: white;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
   border-radius: 0rem;
+  margin-bottom: 0px;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron .container {
+  max-width: 40rem;
 }
 
 /* Divider */
 .featurette-divider {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+.n2br {
+  white-space: pre-line;
+} 
+
+.wrapper {
+  display: contents;
+}
+
+.poster_path {
+  width: 100%;
 }
