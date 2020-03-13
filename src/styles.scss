@@ -2,15 +2,20 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 /* General */
-.navbar,
 .dark-footer {
+  background-color: #222222;
+  color: white;
+}
+
+.navbar {
+  box-shadow: #222222 0 0px 20px;
   background-color: #222222;
   color: white;
 }
 
 /* General styling */
 body {
-  padding-bottom: 3rem;
+  padding: 3rem 0rem;
 }
 
 main {

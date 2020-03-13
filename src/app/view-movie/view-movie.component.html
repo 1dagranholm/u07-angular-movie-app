@@ -32,7 +32,7 @@
             movie.poster_path == null
               ? 'assets/no-image.png'
               : 'https://image.tmdb.org/t/p/w185_and_h278_bestv2' +
-              movie.poster_path
+                movie.poster_path
           }}"
           class="poster_path mb-4"
         />
@@ -82,27 +82,25 @@
     <h2 *ngIf="cast[0]">Featured actors</h2>
     <div class="row mt-4">
       <div class="wrapper" *ngFor="let c of cast; let i = index">
-        <div class="col-2 text-center mb-5">
-          <div *ngIf="i < 12">
-            <a [routerLink]="['/view-actor', c.id]">
-              <img
-                src="{{
-                  c.profile_path == null
-                    ? 'assets/no-image.png'
-                    : 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' +
-                      c.profile_path
-                }}"
-                class="poster_path bd-placeholder-img card-img-top cast-image"
-                width="100%"
-                focusable="false"
-                role="img"
-              />
-            </a>
-            <a [routerLink]="['/view-actor', c.id]"
-              ><h3 class="mt-3">{{ c.name }}</h3></a
-            >
-            <p class="card-text">Character: {{ c.character }}</p>
-          </div>
+        <div *ngIf="i < 12" class="col-2 text-center mb-5">
+          <a [routerLink]="['/view-actor', c.id]">
+            <img
+              src="{{
+                c.profile_path == null
+                  ? 'assets/no-image.png'
+                  : 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' +
+                    c.profile_path
+              }}"
+              class="poster_path bd-placeholder-img card-img-top cast-image"
+              width="100%"
+              focusable="false"
+              role="img"
+            />
+          </a>
+          <a [routerLink]="['/view-actor', c.id]"
+            ><h3 class="mt-3">{{ c.name }}</h3></a
+          >
+          <p class="card-text">Character: {{ c.character }}</p>
         </div>
       </div>
     </div>
@@ -116,7 +114,9 @@
         Not available
       </h1>
       <p class="mt-3">
-        <span class="lead bg-darken rounded-sm m-1 p-2">Try the search function to find what you are looking for.</span>
+        <span class="lead bg-darken rounded-sm m-1 p-2"
+          >Try the search function to find what you are looking for.</span
+        >
       </p>
     </div>
   </section>
