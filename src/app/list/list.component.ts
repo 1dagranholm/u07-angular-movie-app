@@ -11,7 +11,7 @@ export class ListComponent implements OnInit {
   movies: any;
 
   constructor(
-    private _http: HttpService
+    private _http: HttpService,
   ) {}
 
   ngOnInit() {

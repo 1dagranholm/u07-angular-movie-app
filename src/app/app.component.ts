@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router"
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -9,6 +10,8 @@ import { NgForm } from '@angular/forms';
 })
 
 export class AppComponent {
+
+  faHeart = faHeart;
 
   constructor(
     private route: Router

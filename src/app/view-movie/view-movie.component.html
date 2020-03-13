@@ -28,11 +28,13 @@
     <div class="row featurette">
       <div class="col-12 col-md-3">
         <img
-          *ngIf="movie.poster_path"
-          src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{
-            movie.poster_path
+          src="{{
+            movie.poster_path == null
+              ? 'assets/no-image.png'
+              : 'https://image.tmdb.org/t/p/w185_and_h278_bestv2' +
+              movie.poster_path
           }}"
-          class="poster_path"
+          class="poster_path mb-4"
         />
       </div>
 
@@ -75,17 +77,20 @@
       </div>
     </div>
 
-    <hr class="featurette-divider" />
+    <hr *ngIf="cast[0]" class="featurette-divider" />
 
-    <h2 *ngIf="cast">Featured actors</h2>
+    <h2 *ngIf="cast[0]">Featured actors</h2>
     <div class="row mt-4">
       <div class="wrapper" *ngFor="let c of cast; let i = index">
-        <div *ngIf="c.profile_path" class="col-2 text-center mb-5">
+        <div class="col-2 text-center mb-5">
           <div *ngIf="i < 12">
             <a [routerLink]="['/view-actor', c.id]">
               <img
-                src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{
-                  c.profile_path
+                src="{{
+                  c.profile_path == null
+                    ? 'assets/no-image.png'
+                    : 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' +
+                      c.profile_path
                 }}"
                 class="poster_path bd-placeholder-img card-img-top cast-image"
                 width="100%"

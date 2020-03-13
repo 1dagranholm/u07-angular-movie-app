@@ -15,8 +15,11 @@
         <div class="card mb-4 shadow-sm">
           <a [routerLink]="['/view-movie', movie.id]"
             ><img
-              src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{
-                movie.poster_path
+              src="{{
+                movie.poster_path == null
+                  ? 'assets/no-image.png'
+                  : 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/' +
+                    movie.poster_path
               }}"
               class="poster_path bd-placeholder-img card-img-top"
               width="100%"

@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewMovieComponent } from './view-movie/view-movie.component';
 import { ViewActorComponent } from './view-actor/view-actor.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +21,14 @@ import { ViewActorComponent } from './view-actor/view-actor.component';
     ListComponent,
     SearchResultComponent,
     ViewMovieComponent,
-    ViewActorComponent,
+    ViewActorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

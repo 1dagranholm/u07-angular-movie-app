@@ -1,40 +1,76 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" routerLink="/" title="Home">The Movie App</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item ml-2">
           <a class="nav-link" href="#" routerLink="/list">Popular movies</a>
         </li>
       </ul>
-      <form #searchForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="submitForm(searchForm)">
-        <input 
-          class="form-control mr-sm-2" 
-          name="search" 
-          type="text" 
-          placeholder="Search" 
+
+      <form
+        #searchForm="ngForm"
+        class="form-inline my-2 my-lg-0"
+        (ngSubmit)="submitForm(searchForm)"
+      >
+        <input
+          class="form-control mr-sm-2"
+          name="search"
+          type="text"
+          placeholder="Search"
           aria-label="Search"
           ngModel
           required
-        >
+        />
 
-        <input class="btn green-blue-btn my-2 my-sm-0" type="submit" value="Search">
+        <input
+          class="btn green-blue-btn my-2 my-sm-0"
+          type="submit"
+          value="Search"
+        />
       </form>
     </div>
   </nav>
 </header>
 
 <main role="main">
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </main>
 
 <footer class="container">
   <p class="float-right"><a href="#">Back to top</a></p>
-  <p>&copy; 2020 &middot; <a href="mailto:granholm.ida@gmail.com">Ida Granholm</a></p>
+  <p>
+    &copy; 2020 &middot;
+    <a href="mailto:granholm.ida@gmail.com">Ida Granholm</a>
+  </p>
 </footer>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+  crossorigin="anonymous"
+></script>
+<script>
+  window.jQuery ||
+    document.write(
+      '<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>'
+    );
+</script>
+<script
+  src="/docs/4.4/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+  crossorigin="anonymous"
+></script>
