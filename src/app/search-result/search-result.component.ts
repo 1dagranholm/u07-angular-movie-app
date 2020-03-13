@@ -12,23 +12,24 @@ export class SearchResultComponent implements OnInit {
   search: Object;
   movies: Object;
   actors: Object;
+  parameters: string;
    
   constructor(
     private _http: HttpService,
-    private router: ActivatedRoute,
+    private activeRouter: ActivatedRoute,
   ) {}
 
   ngOnInit() {
-    this.router.paramMap.subscribe(params => {
-      this.search = params.get('search');
-    });
+    this.activeRouter.params.subscribe(params => {
+      this.parameters = params.search 
+      
+      this._http.searchMovies(params.search).subscribe(data => {
+        this.movies = data['results'];
+      });
 
-    this._http.searchMovies(this.search).subscribe(data => {
-      this.movies = data['results'];
-    });
-
-    this._http.searchActors(this.search).subscribe(data => {
-      this.actors = data['results'];
+      this._http.searchActors(params.search).subscribe(data => {
+        this.actors = data['results'];
+      });
     });
   }
 }

@@ -32,7 +32,6 @@ export class ViewActorComponent implements OnInit {
 
     this._http.getActorMovies(this.actorId).subscribe(data => {
       this.movies = data['cast'];
-      console.log(data['cast']);
     });
   }
 }

@@ -25,6 +25,7 @@ export class ViewMovieComponent implements OnInit {
  
     this._http.getMovie(this.movieId).subscribe(data => {
       this.movie = data;
+      console.log(data);
     });
 
     this._http.getActorsInMovie(this.movieId).subscribe(data => {

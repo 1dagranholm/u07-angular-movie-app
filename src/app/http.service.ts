@@ -57,15 +57,6 @@ export class HttpService {
     );
   }
 
-  getSearch(search: any) {
-    let apiUrl = 'https://api.themoviedb.org/3/search/multi';
-    let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
- 
-    return this.http.get(
-      apiUrl + '?api_key='+ apiKey + '&language=en-US&query=' + search + '&page=1&include_adult=false'
-    );
-  }
-
   searchActors(search: any) {
     let apiUrl = 'https://api.themoviedb.org/3/search/person';
     let apiKey = '4e3efe747364cf6327c7a85cefbf7c59';
