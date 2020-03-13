@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { ActivatedRoute } from '@angular/router'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-result',
@@ -17,6 +18,7 @@ export class SearchResultComponent implements OnInit {
   constructor(
     private _http: HttpService,
     private activeRouter: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -31,5 +33,10 @@ export class SearchResultComponent implements OnInit {
         this.actors = data['results'];
       });
     });
+  }
+
+  submitForm(form) {
+    if(!form.value.search) return;
+    this.router.navigate(['/search-result', form.value.search])
   }
 }
