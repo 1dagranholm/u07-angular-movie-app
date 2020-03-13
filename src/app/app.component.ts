@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router"
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent {
   title = 'u07-angular-movie-app';
   
   submitForm(form){
+    if(!form.value.search) return;
     this.route.navigate(['/search-result', form.value.search])
   };
 }

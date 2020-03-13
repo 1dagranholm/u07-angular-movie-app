@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   movies: any;
-  backgroundImage: any;
 
   constructor(
     private _http: HttpService,
@@ -20,11 +19,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this._http.getPopularMovies().subscribe(data => {
       this.movies = data['results'];
-      this.backgroundImage = 'https://image.tmdb.org/t/p/original/'+data['results'][0]['backdrop_path'];
     });
   }
 
   submitForm(form) {
+    if(!form.value.search) return;
     this.router.navigate(['/search-result', form.value.search])
   }
 }
