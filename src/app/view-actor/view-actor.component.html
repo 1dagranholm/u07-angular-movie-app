@@ -3,9 +3,6 @@
     <div class="container">
       <h1>
         {{ actor.name }}
-        <span *ngIf="actor.birthday" class="text-muted">
-          ({{ actor.birthday }})</span
-        >
       </h1>
       <p *ngIf="actor.known_for_department" class="lead">
         Best known for: {{ actor.known_for_department }}
