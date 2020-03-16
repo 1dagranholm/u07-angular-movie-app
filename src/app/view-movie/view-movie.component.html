@@ -82,7 +82,7 @@
     <h2 *ngIf="cast[0]">Featured actors</h2>
     <div class="row mt-4">
       <div class="wrapper" *ngFor="let c of cast; let i = index">
-        <div *ngIf="i < 12" class="col-2 text-center mb-5">
+        <div *ngIf="i < 12" class="col-6 col-xl-2 text-center mb-5">
           <a [routerLink]="['/view-actor', c.id]">
             <img
               src="{{

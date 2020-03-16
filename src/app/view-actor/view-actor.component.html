@@ -72,7 +72,7 @@
     <h2 *ngIf="movies[0]">Featured in</h2>
     <div class="row mt-4">
       <div class="wrapper" *ngFor="let m of movies; let i = index">
-        <div *ngIf="i < 12" class="col-2 text-center mb-5">
+        <div *ngIf="i < 12" class="col-6 col-xl-2 text-center mb-5">
           <a [routerLink]="['/view-movie', m.id]">
             <img
               src="{{
