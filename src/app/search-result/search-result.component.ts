@@ -37,9 +37,6 @@ export class SearchResultComponent implements OnInit {
         this.actors = data['results'];
         this.errorApiActors = this.actors == null || this.actors === 0 || this.actors['length'] === 0;
       });
-      
-      
-      
     });
   }
 
