@@ -17,6 +17,25 @@
   </div>
 </div>
 
+<div class="container-fluid head-image p-0">
+  <div *ngIf="series">
+    <img
+      class="backdrop"
+      src="https://image.tmdb.org/t/p/original/{{ series[0].backdrop_path }}"
+    />
+  </div>
+  <div *ngIf="!series">
+    <div class="no-backdrop"></div>
+  </div>
+  <div class="overlay">
+    <div class="cover-text text-center">
+      <h1 class="display-4 font-weight-normal">Trending TV-series</h1>
+      <p class="lead font-weight-normal">Trending TV-series gathered.</p>
+      <a class="btn btn-lg white-btn" routerLink="/trending-tv">Take me there</a>
+    </div>
+  </div>
+</div>
+
 <div
   class="position-relative overflow-hidden p-3 p-md-5 text-center bg-blue text-light mp-1 m-0 search-box"
 >

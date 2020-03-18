@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   movies: any;
+  series: any;
 
   constructor(
     private _http: HttpService,
@@ -19,6 +20,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this._http.getPopularMovies().subscribe(data => {
       this.movies = data['results'];
+    });
+
+    this._http.getTrendingTV().subscribe(data => {
+      this.series = data["results"];
     });
   }
 
