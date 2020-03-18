@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   movies: any;
   series: any;
+  randomize: number;
 
   constructor(
     private _http: HttpService,
@@ -18,6 +19,8 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.randomize = Math.round(Math.random() * 10);
+
     this._http.getPopularMovies().subscribe(data => {
       this.movies = data['results'];
     });

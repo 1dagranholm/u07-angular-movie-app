@@ -2,7 +2,7 @@
   <div *ngIf="movies">
     <img
       class="backdrop"
-      src="https://image.tmdb.org/t/p/original/{{ movies[0].backdrop_path }}"
+      src="https://image.tmdb.org/t/p/original/{{ movies[randomize].backdrop_path }}"
     />
   </div>
   <div *ngIf="!movies">
@@ -21,7 +21,7 @@
   <div *ngIf="series">
     <img
       class="backdrop"
-      src="https://image.tmdb.org/t/p/original/{{ series[0].backdrop_path }}"
+      src="https://image.tmdb.org/t/p/original/{{ series[randomize].backdrop_path }}"
     />
   </div>
   <div *ngIf="!series">
@@ -31,7 +31,7 @@
     <div class="cover-text text-center">
       <h1 class="display-4 font-weight-normal">Trending TV-shows</h1>
       <p class="lead font-weight-normal">Gotta catch 'em all.</p>
-      <a class="btn btn-lg white-btn" routerLink="/trending-tv">Take me there</a>
+      <a class="btn btn-lg white-btn" routerLink="/trending-tv">Show me</a>
     </div>
   </div>
 </div>
