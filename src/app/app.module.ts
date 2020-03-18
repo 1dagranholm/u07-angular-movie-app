@@ -15,6 +15,7 @@ import { ViewActorComponent } from './view-actor/view-actor.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TrendingTvComponent } from './trending-tv/trending-tv.component';
 import { ViewTvComponent } from './view-tv/view-tv.component';
+import { TrendingMoviesComponent } from './trending-movies/trending-movies.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ViewTvComponent } from './view-tv/view-tv.component';
     ViewMovieComponent,
     ViewActorComponent,
     TrendingTvComponent,
-    ViewTvComponent
+    ViewTvComponent,
+    TrendingMoviesComponent
   ],
   imports: [
     BrowserModule,

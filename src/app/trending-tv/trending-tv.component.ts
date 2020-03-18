@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpService } from "../http.service";
-import { ITS_JUST_ANGULAR } from "@angular/core/src/r3_symbols";
-import { isDefined } from "@angular/compiler/src/util";
 
 @Component({
   selector: "app-trending-tv",

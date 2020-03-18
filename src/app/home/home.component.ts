@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.randomize = Math.round(Math.random() * 10);
 
-    this._http.getPopularMovies().subscribe(data => {
+    this._http.getTrendingMovies().subscribe(data => {
       this.movies = data['results'];
     });
 

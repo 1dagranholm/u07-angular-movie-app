@@ -1,0 +1,59 @@
+<section class="jumbotron text-center text-light bg-green-blue">
+    <div class="container">
+      <h1>Trending movies</h1>
+      <p class="lead">On big screens right now.</p>
+    </div>
+  </section>
+  
+  <div class="album py-5 bg-light">
+    <div *ngIf="movies" class="container">
+      <div class="row">
+        <div
+          *ngFor="let movie of movies; index as id"
+          class="order-{{ movie.vote_average }} col-12 col-md-6 col-lg-4 col-xl-3"
+        >
+          <div class="card mb-4 shadow-sm">
+            <a [routerLink]="['/view-movie', movie.id]"
+              ><img
+                src="{{
+                  movie.poster_path == null
+                    ? 'assets/no-image.png'
+                    : 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/' +
+                      movie.poster_path
+                }}"
+                class="poster_path bd-placeholder-img card-img-top"
+                width="100%"
+                focusable="false"
+                role="img"
+            /></a>
+            <div class="card-body">
+              <h3 class="mb-0">{{ movie.title }}</h3>
+              <p>
+                <small class="text-muted"
+                  >Release: {{ movie.release_date }}</small
+                >
+              </p>
+              <p class="card-text" style="height:120px;">
+                {{ movie.overview.substring(0, 200) }}...
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    [routerLink]="['/view-movie', movie.id]"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    More info
+                  </button>
+                </div>
+                <small class="text-muted"
+                  >Average vote: {{ movie.vote_average }}</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
