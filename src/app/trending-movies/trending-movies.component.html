@@ -46,9 +46,10 @@
                     More info
                   </button>
                 </div>
-                <small class="text-muted"
-                  >Average vote: {{ movie.vote_average }}</small
-                >
+                <div class="group">
+                  <div class="circular-progress{{ movie.vote_average*10 }}"></div>
+                </div>
+
               </div>
             </div>
           </div>

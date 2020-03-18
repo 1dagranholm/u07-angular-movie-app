@@ -55,9 +55,9 @@
                     More info
                   </button>
                 </div>
-                <small class="text-muted"
-                  >Average vote: {{ s.vote_average }}</small
-                >
+                <div class="group">
+                  <div class="circular-progress{{ s.vote_average*10 }}"></div>
+                </div>
               </div>
             </div>
           </div>
