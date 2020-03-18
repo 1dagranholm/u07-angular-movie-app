@@ -13,6 +13,8 @@ import { ViewMovieComponent } from './view-movie/view-movie.component';
 import { ViewActorComponent } from './view-actor/view-actor.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TrendingTvComponent } from './trending-tv/trending-tv.component';
+import { ViewTvComponent } from './view-tv/view-tv.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ListComponent,
     SearchResultComponent,
     ViewMovieComponent,
-    ViewActorComponent
+    ViewActorComponent,
+    TrendingTvComponent,
+    ViewTvComponent
   ],
   imports: [
     BrowserModule,

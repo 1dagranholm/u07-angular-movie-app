@@ -11,6 +11,7 @@ export class HttpService {
     private http: HttpClient,
   ) {}
 
+  // General set up fpr The Movie Database API
   private startUrl = 'https://api.themoviedb.org/3/';
   private apiKey: string = '4e3efe747364cf6327c7a85cefbf7c59';
 
@@ -20,6 +21,24 @@ export class HttpService {
 
     return this.http.get(
       this.startUrl + apiUrl + '?' + param + '&api_key=' + this.apiKey + '&language=en-US&page=1'
+    );
+  }
+
+  getTrendingMovies() {
+    let apiUrl = 'trending/movie'
+    let param = 'week' // Options: day / week
+
+    return this.http.get(
+    this.startUrl + apiUrl + '/' + param + '?api_key=' + this.apiKey
+    );
+  }
+
+  getTrendingTV() {
+    let apiUrl = 'trending/tv'
+    let param = 'week' // Options: day / week
+
+    return this.http.get(
+    this.startUrl + apiUrl + '/' + param + '?api_key=' + this.apiKey
     );
   }
 
@@ -68,6 +87,22 @@ export class HttpService {
  
     return this.http.get(
       this.startUrl + apiUrl + '?api_key='+ this.apiKey + '&language=en-US&query=' + search + '&page=1&include_adult=false'
+    );
+  }
+
+  getTVGenres() {
+    let apiUrl = 'genre/tv/list';
+
+    return this.http.get(
+      this.startUrl + apiUrl + '?api_key=' + this.apiKey + '&language=en-US'
+    );
+  }
+
+  getMovieGenres() {
+    let apiUrl = 'genre/movie/list';
+
+    return this.http.get(
+      this.startUrl + apiUrl + '?api_key=' + this.apiKey + '&language=en-US'
     );
   }
 }
