@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router"
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',

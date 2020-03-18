@@ -42,6 +42,14 @@ export class HttpService {
     );
   }
 
+  getTV(id: number) {
+    let apiUrl = 'tv';
+
+    return this.http.get(
+      this.startUrl + apiUrl + '/' + id + '?api_key=' + this.apiKey + '&language=en-US'
+    );
+  }
+
   getMovie(id: number) {
     let apiUrl = 'movie';
 
