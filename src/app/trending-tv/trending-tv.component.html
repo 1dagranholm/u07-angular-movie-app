@@ -1,62 +1,65 @@
 <section class="jumbotron text-center text-light bg-green-blue">
-    <div class="container">
-      <h1>Trending TV-shows</h1>
-      <p class="lead">The talk of the town, trending TV-series right now.</p>
-    </div>
-  </section>
-  
-  <div class="album py-5 bg-light">
-    <div *ngIf="series" class="container">
-      <div class="row">
-        <div
-          *ngFor="let s of series; index as id"
-          class="order-{{ s.vote_average }} col-12 col-md-6 col-lg-4 col-xl-3"
-        >
-          <div class="card mb-4 shadow-sm">
-            <a [routerLink]="['/view-tv', s.id]"
-              ><img
-                src="{{
-                  s.poster_path == null
-                    ? 'assets/no-image.png'
-                    : 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/' +
-                      s.poster_path
-                }}"
-                class="poster_path bd-placeholder-img card-img-top"
-                width="100%"
-                focusable="false"
-                role="img"
-            /></a>
-            <div class="card-body">
-              <h3 class="mb-0">{{ s.name }}</h3>
-              <p class="mt-2">
-                <small *ngFor="let genreId of s.genre_ids" class="small-genre bg-darken rounded-sm mr-1 p-1"
-                  >
-                  <span *ngIf="genreArray[genreId]">
+  <div class="container">
+    <h1>Trending TV-shows</h1>
+    <p class="lead">The talk of the town, trending TV-series right now.</p>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div *ngIf="series" class="container">
+    <div class="row">
+      <div
+        *ngFor="let s of series; index as id"
+        class="order-{{ s.vote_average }} col-12 col-md-6 col-lg-4 col-xl-3"
+      >
+        <div class="card mb-4 shadow-sm">
+          <a [routerLink]="['/view-tv', s.id]"
+            ><img
+              src="{{
+                s.poster_path == null
+                  ? 'assets/no-image.png'
+                  : 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/' +
+                    s.poster_path
+              }}"
+              class="poster_path bd-placeholder-img card-img-top"
+              width="100%"
+              focusable="false"
+              role="img"
+          /></a>
+          <div class="card-body">
+            <h3 class="mb-0">{{ s.name }}</h3>
+            <p class="mt-2">
+              <small
+                *ngFor="let genreId of s.genre_ids"
+                class="small-genre bg-darken rounded-sm mr-1 p-1"
+              >
+                <span *ngIf="genreArray[genreId]">
                   {{ genreArray[genreId] }}
                 </span>
-                  </small
+              </small>
+            </p>
+            <p class="card-text" style="height:120px;">
+              {{ s.overview.substring(0, 200) }}...
+            </p>
+            <p>
+              <small class="text-muted"
+                >First aired: {{ s.first_air_date }}</small
+              >
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button
+                  type="button"
+                  [routerLink]="['/view-tv', s.id]"
+                  class="btn btn-sm btn-outline-secondary"
                 >
-              </p>
-              <p class="card-text" style="height:120px;">
-                {{ s.overview.substring(0, 200) }}...
-              </p>
-              <p>
-                <small class="text-muted"
-                  >First aired: {{ s.first_air_date }}</small
-                >
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button
-                    type="button"
-                    [routerLink]="['/view-tv', s.id]"
-                    class="btn btn-sm btn-outline-secondary"
-                  >
-                    More info
-                  </button>
-                </div>
+                  More info
+                </button>
+              </div>
+              <div class="d-flex align-items-center">
+                <small *ngIf="s.vote_average" class="text-muted mr-2">Average vote:</small>
                 <div class="group">
-                  <div class="circular-progress{{ s.vote_average*10 }}"></div>
+                  <div class="circular-progress{{ s.vote_average * 10 }}"></div>
                 </div>
               </div>
             </div>
@@ -65,4 +68,4 @@
       </div>
     </div>
   </div>
-  
+</div>

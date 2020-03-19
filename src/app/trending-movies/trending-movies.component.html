@@ -46,10 +46,12 @@
                     More info
                   </button>
                 </div>
-                <div class="group">
-                  <div class="circular-progress{{ movie.vote_average*10 }}"></div>
+                <div class="d-flex align-items-center">
+                  <small *ngIf="movie.vote_average" class="text-muted mr-2">Average vote:</small>
+                  <div class="group">
+                    <div class="circular-progress{{ movie.vote_average * 10 }}"></div>
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>

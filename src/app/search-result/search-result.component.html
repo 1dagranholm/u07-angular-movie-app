@@ -9,7 +9,6 @@
 </section>
 
 <div *ngIf="!errorApiActors || !errorApiMovies">
-
   <div class="album py-5 bg-light">
     <div *ngIf="movies" class="container">
       <h2 class="text-center mb-4" id="movies">Movies</h2>
@@ -54,8 +53,13 @@
                       More info
                     </button>
                   </div>
-                  <div class="group">
-                    <div class="circular-progress{{ m.vote_average*10 }}"></div>
+                  <div class="d-flex align-items-center">
+                    <small *ngIf="m.vote_average" class="text-muted mr-2">Average vote:</small>
+                    <div class="group">
+                      <div
+                        class="circular-progress{{ m.vote_average * 10 }}"
+                      ></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -92,19 +96,20 @@
                   ><h3>{{ t.name }}</h3></a
                 >
                 <p class="mt-2">
-                  <small *ngFor="let genreId of t.genre_ids" class="small-genre bg-darken rounded-sm mr-1 p-1"
-                    >
-                    <span *ngIf="genreArray[genreId]">
-                    {{ genreArray[genreId] }}
-                  </span>
-                    </small
+                  <small
+                    *ngFor="let genreId of t.genre_ids"
+                    class="small-genre bg-darken rounded-sm mr-1 p-1"
                   >
+                    <span *ngIf="genreArray[genreId]">
+                      {{ genreArray[genreId] }}
+                    </span>
+                  </small>
                 </p>
                 <p *ngIf="t.overview" class="card-text" style="height:120px;">
                   {{ t.overview.substring(0, 180) }}...
                 </p>
                 <p>
-                  <small class="text-muted"
+                  <small  *ngIf="t.first_air_date" class="text-muted"
                     >First aired: {{ t.first_air_date }}</small
                   >
                 </p>
@@ -118,8 +123,13 @@
                       More info
                     </button>
                   </div>
-                  <div class="group">
-                    <div class="circular-progress{{ t.vote_average*10 }}"></div>
+                  <div class="d-flex align-items-center">
+                    <small  *ngIf="t.vote_average" class="text-muted mr-2">Average vote:</small>
+                    <div class="group">
+                      <div
+                        class="circular-progress{{ t.vote_average * 10 }}"
+                      ></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -209,5 +219,4 @@
       </form>
     </div>
   </div>
-
 </div>
