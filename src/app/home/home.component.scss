@@ -76,7 +76,7 @@
 }
 
 .overlay {
-  background-color: rgb(0, 0, 0, 0.85);
+  background-color: rgb(0, 0, 0, 0.70);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -85,7 +85,7 @@
 }
 
 .overlay-blue {
-  background-color: rgba(24, 21, 31, 0.85);
+  background-color: rgba(49, 85, 128, 0.8);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -95,6 +95,15 @@
 
 .overlay-light {
   background-color: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.overlay-green {
+  background-color: rgba(213, 249, 228, 0.75);
   position: absolute;
   top: 0;
   bottom: 0;
