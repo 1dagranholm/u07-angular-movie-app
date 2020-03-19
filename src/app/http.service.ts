@@ -13,14 +13,15 @@ export class HttpService {
 
   // General set up fpr The Movie Database API
   private startUrl = 'https://api.themoviedb.org/3/';
-  private apiKey: string = '4e3efe747364cf6327c7a85cefbf7c59';
+  private apiKey: string = '?api_key=4e3efe747364cf6327c7a85cefbf7c59';
+  private langUs: string = '&language=en-US';
 
   getPopularMovies() {
     let apiUrl = 'discover/movie';
     let param = 'sort_by=popularity.desc';
 
     return this.http.get(
-      this.startUrl + apiUrl + '?' + param + '&api_key=' + this.apiKey + '&language=en-US&page=1'
+      this.startUrl + apiUrl + '?' + param + this.apiKey + this.langUs + '&page=1'
     );
   }
 
@@ -29,7 +30,7 @@ export class HttpService {
     let param = 'week' // Options: day / week
 
     return this.http.get(
-    this.startUrl + apiUrl + '/' + param + '?api_key=' + this.apiKey
+    this.startUrl + apiUrl + '/' + param + this.apiKey
     );
   }
 
@@ -38,7 +39,7 @@ export class HttpService {
     let param = 'week' // Options: day / week
 
     return this.http.get(
-    this.startUrl + apiUrl + '/' + param + '?api_key=' + this.apiKey
+    this.startUrl + apiUrl + '/' + param + this.apiKey
     );
   }
 
@@ -46,7 +47,7 @@ export class HttpService {
     let apiUrl = 'tv';
 
     return this.http.get(
-      this.startUrl + apiUrl + '/' + id + '?api_key=' + this.apiKey + '&language=en-US'
+      this.startUrl + apiUrl + '/' + id + this.apiKey + this.langUs
     );
   }
 
@@ -54,15 +55,16 @@ export class HttpService {
     let apiUrl = 'movie';
 
     return this.http.get(
-      this.startUrl + apiUrl + '/' + id + '?api_key=' + this.apiKey + '&language=en-US'
+      this.startUrl + apiUrl + '/' + id + this.apiKey + this.langUs
     );
   }
 
   getActorsInMovie(id: number) {
     let apiUrl = 'movie';
+    let param = '/credits';
 
     return this.http.get(
-      this.startUrl + apiUrl + '/' + id + '/credits?api_key=' + this.apiKey
+      this.startUrl + apiUrl + '/' + id + param + this.apiKey
     );
   }
 
@@ -70,15 +72,25 @@ export class HttpService {
     let apiUrl = 'person';
 
     return this.http.get(
-      this.startUrl + apiUrl + '/' + id + '?api_key=' + this.apiKey + '&language=en-US'
+      this.startUrl + apiUrl + '/' + id + this.apiKey + this.langUs
     );
   }
   
   getActorMovies(id: number) {
     let apiUrl = 'person';
+    let param = '/combined_credits';
 
     return this.http.get(
-      this.startUrl + apiUrl + '/' + id + '/combined_credits?api_key=' + this.apiKey + '&language=en-US'
+      this.startUrl + apiUrl + '/' + id + param + this.apiKey + this.langUs
+    );
+  }
+
+  getActorTv(id: number) {
+    let apiUrl = 'person';
+    let param = '/tv_credits';
+
+    return this.http.get(
+      this.startUrl + apiUrl + '/' + id + param + this.apiKey + this.langUs
     );
   }
 
@@ -86,7 +98,7 @@ export class HttpService {
     let apiUrl = 'search/person';
  
     return this.http.get(
-      this.startUrl + apiUrl + '?api_key='+ this.apiKey + '&language=en-US&page=1&include_adult=false&query=' + search
+      this.startUrl + apiUrl + this.apiKey + this.langUs + '&page=1&include_adult=false&query=' + search
     );
   }
 
@@ -94,7 +106,7 @@ export class HttpService {
     let apiUrl = 'search/movie';
  
     return this.http.get(
-      this.startUrl + apiUrl + '?api_key='+ this.apiKey + '&language=en-US&query=' + search + '&page=1&include_adult=false'
+      this.startUrl + apiUrl + this.apiKey + this.langUs + 'query=' + search + '&page=1&include_adult=false'
     );
   }
 
@@ -102,7 +114,7 @@ export class HttpService {
     let apiUrl = 'search/tv';
  
     return this.http.get(
-      this.startUrl + apiUrl + '?api_key='+ this.apiKey + '&language=en-US&query=' + search + '&page=1&include_adult=false'
+      this.startUrl + apiUrl + this.apiKey + this.langUs + '&query=' + search + '&page=1&include_adult=false'
     );
   }
 
@@ -110,7 +122,7 @@ export class HttpService {
     let apiUrl = 'genre/tv/list';
 
     return this.http.get(
-      this.startUrl + apiUrl + '?api_key=' + this.apiKey + '&language=en-US'
+      this.startUrl + apiUrl + this.apiKey + this.langUs
     );
   }
 
@@ -118,7 +130,7 @@ export class HttpService {
     let apiUrl = 'genre/movie/list';
 
     return this.http.get(
-      this.startUrl + apiUrl + '?api_key=' + this.apiKey + '&language=en-US'
+      this.startUrl + apiUrl + this.apiKey + this.langUs
     );
   }
 }

@@ -13,6 +13,7 @@ export class ViewActorComponent implements OnInit {
   actorId: number;
   gender: any;
   movies: any;
+  tv: any;
 
   constructor(
     private _http: HttpService,
@@ -32,6 +33,10 @@ export class ViewActorComponent implements OnInit {
 
     this._http.getActorMovies(this.actorId).subscribe(data => {
       this.movies = data['cast'];
+    });
+
+    this._http.getActorTv(this.actorId).subscribe(data => {
+      this.tv = data['cast'];
     });
   }
 }

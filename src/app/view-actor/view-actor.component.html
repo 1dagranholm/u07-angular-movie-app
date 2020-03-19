@@ -66,7 +66,7 @@
 
     <hr *ngIf="movies[0]" class="featurette-divider" />
 
-    <h2 *ngIf="movies[0]">Featured in</h2>
+    <h2 *ngIf="movies[0]">Movies by selection</h2>
     <div class="row mt-4">
       <div class="wrapper" *ngFor="let m of movies; let i = index">
         <div *ngIf="i < 12" class="col-6 col-md-2 text-center mb-5">
@@ -91,6 +91,35 @@
         </div>
       </div>
     </div>
+
+    <hr *ngIf="tv[0]" class="featurette-divider" />
+
+    <h2 *ngIf="tv[0]">TV-shows by selection</h2>
+    <div class="row mt-4">
+      <div class="wrapper" *ngFor="let t of tv; let i = index">
+        <div *ngIf="i < 12" class="col-6 col-md-2 text-center mb-5">
+          <a [routerLink]="['/view-tv', t.id]">
+            <img
+              src="{{
+                t.poster_path == null
+                  ? 'assets/no-image.png'
+                  : 'https://image.tmdb.org/t/p/w185_and_h278_bestv2' +
+                    t.poster_path
+              }}"
+              class="poster_path bd-placeholder-img card-img-top cast-image"
+              width="100%"
+              focusable="false"
+              role="img"
+            />
+          </a>
+          <a [routerLink]="['/view-actor', t.id]"
+            ><h3 class="mt-3">{{ t.name }}</h3></a
+          >
+          <p *ngIf="t.character" class="card-text">Character: {{ t.character }}</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 

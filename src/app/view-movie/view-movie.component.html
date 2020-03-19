@@ -89,7 +89,7 @@
           <a [routerLink]="['/view-actor', c.id]"
             ><h3 class="mt-3">{{ c.name }}</h3></a
           >
-          <p class="card-text">Character: {{ c.character }}</p>
+          <p *ngIf="c.character" class="card-text">Character: {{ c.character }}</p>
         </div>
       </div>
     </div>
