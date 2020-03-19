@@ -55,14 +55,6 @@
             <span *ngIf="movie.runtime" class="font-weight-bold">Runtime:</span>
             {{ movie.runtime }} minutes
           </li>
-          <li>
-            <span *ngIf="movie.budget" class="font-weight-bold">Budget:</span>
-            {{ movie.budget != 0 ? (movie.budget | currency: "USD") : "" }}
-          </li>
-          <li>
-            <span *ngIf="movie.revenue" class="font-weight-bold">Revenue:</span>
-            {{ movie.revenue != 0 ? (movie.revenue | currency: "USD") : "" }}
-          </li>
         </ul>
         <a
           class="btn blue-btn"

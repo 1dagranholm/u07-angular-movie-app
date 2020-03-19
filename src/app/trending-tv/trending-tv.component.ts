@@ -43,7 +43,7 @@ export class TrendingTvComponent implements OnInit {
       { id: 37, name: "Western" }
     ];
 
-    this._http.getTVGenres().subscribe(data => {
+    this._http.getTvGenres().subscribe(data => {
       for (let genre in data["genres"]) {
         let genreStructure = data["genres"][genre];
         this.genreArray[genreStructure.id] = genreStructure.name;

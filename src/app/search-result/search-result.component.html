@@ -9,6 +9,7 @@
 </section>
 
 <div *ngIf="!errorApiActors || !errorApiMovies">
+
   <div class="album py-5 bg-light">
     <div *ngIf="movies" class="container">
       <h2 class="text-center mb-4" id="movies">Movies</h2>
@@ -53,7 +54,73 @@
                       More info
                     </button>
                   </div>
-                  <small class="text-muted">Rating: {{ m.vote_average }}</small>
+                  <div class="group">
+                    <div class="circular-progress{{ m.vote_average*10 }}"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="album py-5 bg-light">
+    <div *ngIf="tv" class="container">
+      <h2 class="text-center mb-4" id="tv">TV-shows</h2>
+
+      <div class="row">
+        <div class="wrapper" *ngFor="let t of tv">
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-4 shadow-sm">
+              <a [routerLink]="['/view-tv', t.id]">
+                <img
+                  src="{{
+                    t.poster_path == null
+                      ? 'assets/no-image.png'
+                      : 'https://image.tmdb.org/t/p/w185_and_h278_bestv2' +
+                        t.poster_path
+                  }}"
+                  class="poster_path bd-placeholder-img card-img-top"
+                  width="100%"
+                  focusable="false"
+                  role="img"
+              /></a>
+              <div class="card-body">
+                <a [routerLink]="['/view-tv', t.id]"
+                  ><h3>{{ t.name }}</h3></a
+                >
+                <p class="mt-2">
+                  <small *ngFor="let genreId of t.genre_ids" class="small-genre bg-darken rounded-sm mr-1 p-1"
+                    >
+                    <span *ngIf="genreArray[genreId]">
+                    {{ genreArray[genreId] }}
+                  </span>
+                    </small
+                  >
+                </p>
+                <p *ngIf="t.overview" class="card-text" style="height:120px;">
+                  {{ t.overview.substring(0, 180) }}...
+                </p>
+                <p>
+                  <small class="text-muted"
+                    >First aired: {{ t.first_air_date }}</small
+                  >
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      [routerLink]="['/view-tv', t.id]"
+                      class="btn btn-sm btn-outline-secondary"
+                    >
+                      More info
+                    </button>
+                  </div>
+                  <div class="group">
+                    <div class="circular-progress{{ t.vote_average*10 }}"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -117,31 +184,30 @@
 
 <div *ngIf="errorApiActors || errorApiMovies">
   <div
-  class="position-relative overflow-hidden p-3 p-md-5 text-center bg-blue text-light mp-1 m-0 search-box"
->
-  <div class="col-md-5 p-lg-5 mx-auto my-3">
-    <h2>No results found!</h2>
-    <p class="lead mb-4">
-      Why don't you try again?
-    </p>
-    <form
-      class="my-2 my-lg-0"
-      #searchForm="ngForm"
-      (ngSubmit)="submitForm(searchForm)"
-    >
-      <input
-        class="form-control mr-sm-2 mb-4"
-        name="search"
-        type="text"
-        placeholder="Search"
-        ngModel
-        required
-      />
-      <button class="btn btn-lg white-btn my-2 my-sm-0" type="submit">
-        Search
-      </button>
-    </form>
+    class="position-relative overflow-hidden p-3 p-md-5 text-center bg-blue text-light mp-1 m-0 search-box"
+  >
+    <div class="col-md-5 p-lg-5 mx-auto my-3">
+      <p class="lead mb-4">
+        Why don't you try another search?
+      </p>
+      <form
+        class="my-2 my-lg-0"
+        #searchForm="ngForm"
+        (ngSubmit)="submitForm(searchForm)"
+      >
+        <input
+          class="form-control mr-sm-2 mb-4"
+          name="search"
+          type="text"
+          placeholder="Search"
+          ngModel
+          required
+        />
+        <button class="btn btn-lg white-btn my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
   </div>
-</div>
-</div>
 
+</div>

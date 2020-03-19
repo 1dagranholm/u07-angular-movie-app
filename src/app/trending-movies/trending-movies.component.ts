@@ -10,7 +10,6 @@ export class TrendingMoviesComponent implements OnInit {
 
   movies: any;
   genres: any;
-  genreArray: any = [];
 
   constructor(private _http: HttpService) {}
 

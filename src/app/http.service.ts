@@ -98,7 +98,15 @@ export class HttpService {
     );
   }
 
-  getTVGenres() {
+  searchTv(search: any) {
+    let apiUrl = 'search/tv';
+ 
+    return this.http.get(
+      this.startUrl + apiUrl + '?api_key='+ this.apiKey + '&language=en-US&query=' + search + '&page=1&include_adult=false'
+    );
+  }
+
+  getTvGenres() {
     let apiUrl = 'genre/tv/list';
 
     return this.http.get(
