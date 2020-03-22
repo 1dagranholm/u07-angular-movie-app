@@ -20,7 +20,7 @@ jobs:
         npm run build --aot --prod --no-sourcemap --if-present
         
     - name: List output files
-      run: ls
+      run: ls dist
       
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.0.0
